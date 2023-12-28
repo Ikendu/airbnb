@@ -1,12 +1,16 @@
 import { useState } from 'react'
 
 import './App.css'
+import { LogoIcon } from './assets/Icons'
 
 function App() {
   return (
-    <>
-      <h1>Am here</h1>
-    </>
+    <div>
+      <header>
+        <LogoIcon />
+        <span>Lifella</span>
+      </header>
+    </div>
   )
 }
 
