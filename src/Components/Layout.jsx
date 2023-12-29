@@ -3,7 +3,7 @@ import HeaderFile from './HeaderFile'
 
 const Layout = () => {
   return (
-    <div>
+    <div className='flex flex-col min-h-screen'>
       <HeaderFile />
       <Outlet />
     </div>

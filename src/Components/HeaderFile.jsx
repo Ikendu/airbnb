@@ -9,7 +9,7 @@ const HeaderFile = () => {
           <LogoIcon />
           <span className='text-lg font-bold'>lifella</span>
         </Link>
-        <div className='flex justify-between items-center'>
+        <div className='flex justify-between items-center lg:-mr-36'>
           <div className='flex gap-2 border border-gray-300 rounded-full p-2 px-4 shadow-md shadow-gray-300 '>
             <div>Any Where</div>
             <div className='border-l border-gray-300 '></div>
@@ -22,8 +22,11 @@ const HeaderFile = () => {
           </div>
         </div>
         <div className='flex items-center gap-10'>
-          <p>lifella your home</p>
-          <GlobeIcon />
+          <div className='gap-5 hidden lg:flex'>
+            <p>lifella your home</p>
+            <GlobeIcon />
+          </div>
+
           <Link
             to={`/login`}
             className='flex justify-between border border-gray-400 rounded-full p-1 gap-3 px-3'
