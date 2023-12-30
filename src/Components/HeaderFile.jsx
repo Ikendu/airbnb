@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 import { BarIcon, GlobeIcon, LogoIcon, SearchIcon, UserIcon } from '../assets/Icons'
+import { useContext } from 'react'
+import { UserContext } from './UserContext'
 
 const HeaderFile = () => {
+  const { userDetails, setUserDetails } = useContext(UserContext)
   return (
     <div>
       <header className='p-4 flex justify-between'>
@@ -33,6 +36,7 @@ const HeaderFile = () => {
           >
             <BarIcon />
             <UserIcon />
+            <h3>{userDetails?.name}</h3>
           </Link>
         </div>
       </header>

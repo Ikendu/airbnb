@@ -1,11 +1,13 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { UserContext } from './UserContext'
 
 const Login = () => {
   const [user, setUser] = useState({ email: ``, password: `` })
   const [isLogged, setIsLogged] = useState(false)
+  const { userDetails, setUserDetails } = useContext(UserContext)
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value })
@@ -15,9 +17,11 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      await axios.post(`/login`, user)
+      const userDoc = await axios.post(`/login`, user)
+      console.log(userDoc)
       toast.success(`Login Successful`)
       setIsLogged(true)
+      setUserDetails(userDoc.data)
     } catch (error) {
       toast.error(`Login Failed`)
     }

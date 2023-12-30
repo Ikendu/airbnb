@@ -7,20 +7,24 @@ import RegisterPage from './Components/RegisterPage'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { UserContextProvider } from './Components/UserContext'
 
 axios.defaults.baseURL = `http://localhost:4000`
+axios.defaults.withCredentials = true
 
 function App() {
   return (
     <div>
       <ToastContainer />
-      <Routes>
-        <Route path='/' element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<RegisterPage />} />
-        </Route>
-      </Routes>
+      <UserContextProvider>
+        <Routes>
+          <Route path='/' element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<RegisterPage />} />
+          </Route>
+        </Routes>
+      </UserContextProvider>
     </div>
   )
 }
