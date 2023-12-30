@@ -7,11 +7,13 @@ export const UserContextProvider = ({ children }) => {
   const [userDetails, setUserDetails] = useState(null)
 
   useEffect(() => {
-    const getUser = async () => {
-      const userDoc = await axios.get(`/profile`)
-      setUserDetails(userDoc.data)
+    if (!userDetails) {
+      const getUser = async () => {
+        const userDoc = await axios.get(`/profile`, userDetails)
+        setUserDetails(userDoc.data)
+      }
+      getUser()
     }
-    getUser()
   }, [])
 
   return (
