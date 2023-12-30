@@ -7,6 +7,9 @@ input[type='email'],
 input[type='password'] {
   @apply w-full border p-2 px-3 my-3 rounded-2xl;
 }
+label {
+  @apply ml-3;
+}
 
 button.primary {
   background-color: #f53850;
